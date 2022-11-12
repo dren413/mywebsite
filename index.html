@@ -1,0 +1,71 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .divPayment{
+      border: 1px solid black;
+      width: 50px;
+      float: left;
+      cursor: pointer;
+    }
+      img{
+        width: 50px;
+      }
+      #divOutput{
+        clear: both;
+      }
+      .btn{
+        clear: both;
+      }
+    </style>
+    <script type="text/javascript">
+      function visaClicked(){
+        document.getElementById("divVisa").style.backgroundColor = "blue"
+        document.getElementById("divMastercard").style.backgroundColor = "white"
+        document.getElementById("divPaypal").style.backgroundColor = "white"
+      }
+      function mastercardClicked(){
+        document.getElementById("divVisa").style.backgroundColor = "white"
+        document.getElementById("divMastercard").style.backgroundColor = "blue"
+        document.getElementById("divPaypal").style.backgroundColor = "white"
+      }
+      function paypalClicked(){
+        document.getElementById("divVisa").style.backgroundColor = "white"
+        document.getElementById("divMastercard").style.backgroundColor = "white"
+        document.getElementById("divPaypal").style.backgroundColor = "blue"
+      }
+
+      function payClicked(){
+        var name = document.getElementById("inName").value;
+        var price = document.getElementById("inPrice").value;
+        var email = document.getElementById("inEmail").value;
+
+        document.getElementById("divOutput").innerHTML = "Hi "+name + ", an invoice of "+price+"€ will be send to "+email+". Thanks for the order!";
+        document.getElementById("divOutput").style.color = "green";
+      }
+    </script>
+  </head>
+  <body>
+    Name: <input type="text" id="inName" value="" autofocus> <br>
+    Price: <input type="number" id="inPrice" value=""><br>
+    E-Mail: <input type="email" id="inEmail" value=""><br>
+    <label>Please choose a payment method:</label><br>
+    <div id="divVisa" style="background-color: blue" class="divPayment">
+      <img src="img/visa.png" onclick="visaClicked()">
+    </div>
+    <div id="divMastercard" class="divPayment">
+      <img src="img/mastercard.png" onclick="mastercardClicked()">
+    </div>
+    <div id="divPaypal" class="divPayment">
+      <img src="img/paypal.png" onclick="paypalClicked()">
+    </div>
+    <br>
+    <br>
+    <br>
+    <button type="button" class="btn" onclick="payClicked()">Pay</button>
+    <div id="divOutput">
+
+    </div>
+  </body>
+</html>
